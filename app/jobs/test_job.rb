@@ -1,7 +1,7 @@
 class TestJob < ActiveJob::Base
   queue_as :default
 
-  def perform(*args)
-    # Do something later
+  def perform(name)
+    TestService.new(name).send_email
   end
 end
